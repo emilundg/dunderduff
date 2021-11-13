@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {FC} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Button } from 'antd';
 
-function App() {
+const App:FC = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        <Button type="primary">Button</Button>
       </header>
     </div>
   );
