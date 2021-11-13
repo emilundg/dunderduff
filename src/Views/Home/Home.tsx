@@ -23,13 +23,20 @@ const Home : FC = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    alignItems: 'center',
-                    width: '24rem',
-                    height: '12rem'
+                    backgroundColor: 'rgba(0,0,0,0.13)',
+                    height: '100%',
+                    width: '100%',
+                    alignItems: 'center'
                 }}>
-                    <Title>Välkommen till Dunderduffarna!</Title>
-                    <Paragraph>Ditt sätt att hitta passande folk att spela med!</Paragraph>
-                    <Button type="primary">HITTA SPELPARTNER</Button>
+                    <div
+                        style={{
+                        width: '24rem',
+                        height: '12rem'
+                    }}>
+                        <Title style={{color: 'rgba(255,255,255,0.89)'}}>Välkommen till Dunderduffarna!</Title>
+                        <Paragraph style={{color: 'rgba(255,255,255,0.89)'}}>Ditt sätt att hitta passande folk att spela med!</Paragraph>
+                        <Button type="primary">HITTA SPELPARTNER</Button>
+                    </div>
                 </div>
             </div>
         </div>
