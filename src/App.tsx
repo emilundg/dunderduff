@@ -1,26 +1,20 @@
 import React, {FC} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Button } from 'antd';
+import { Routes, Route, Link } from "react-router-dom";
+import Home from './Views/Home/Home'
+import Profile from './Views/Profile/Profile'
 
 const App:FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button type="primary">Button</Button>
+        <Link to="/">Home</Link>
+        <Link to="/profile">Profile</Link>
       </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
     </div>
   );
 }
