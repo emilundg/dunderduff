@@ -2,7 +2,7 @@ import React, {FC, useState} from 'react'
 import {Radio} from 'antd'
 
 type Preference = {
-    label: string,
+    label: String,
     value: Tempo | Tees | Attitude
 }
 
@@ -38,21 +38,26 @@ const TEE_OPTIONS : Preference[] = [
     }
 ]
 
-enum Attitude {
+enum AttitudeValues {
     Loose = 'attitude_loose',
     Medium = 'attitude_medium',
     Competitive = 'attitude_competitive'
 }
-const ATTITUDE_OPTIONS : Preference[] = [
+interface Attitude {
+    label: AttitudeLabels,
+    value: AttitudeValues
+}
+type AttitudeLabels =  'Riktigt avslappnad' | 'Sociala spelaren' | 'Tävlingsinriktad'
+const ATTITUDE_OPTIONS : Attitude[] = [
     {
         label: 'Riktigt avslappnad',
-        value: Attitude.Loose 
+        value: AttitudeValues.Loose 
     }, {
         label: 'Sociala spelaren',
-        value: Attitude.Medium 
+        value: AttitudeValues.Medium 
     }, {
         label: 'Tävlingsinriktad',
-        value: Attitude.Competitive 
+        value: AttitudeValues.Competitive 
     }
 ]
 
