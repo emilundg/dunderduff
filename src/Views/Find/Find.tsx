@@ -1,18 +1,24 @@
-import React, {FC, useState} from 'react'
+import React, {FC, useState} from 'react';
 import {Button, Steps} from 'antd';
-import Preferences from './Preferences'
+import Preferences from './Preferences';
+import TeeTime from './TeeTime';
 
 const {Step} = Steps;
 
-const steps = [
+type StepTitles = 'Spelegenskaper' | 'När' | 'Var';
+type StepType = {
+    title: StepTitles,
+    content: any
+}; 
+const steps: StepType[] = [
     {
         title: 'Spelegenskaper',
         content: <Preferences/> 
     }, {
-        title: 'Second',
-        content: 'Second-content'
+        title: 'När',
+        content: <TeeTime/>
     }, {
-        title: 'Last',
+        title: 'Var',
         content: 'Last-content'
     }
 ];
@@ -58,6 +64,6 @@ const Find : FC = () => {
                 )}
             </div>
         </div>
-    )
+    );
 }
 export default Find
