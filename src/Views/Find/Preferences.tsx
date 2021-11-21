@@ -2,7 +2,7 @@ import React, {FC, useState} from 'react'
 import {Radio} from 'antd'
 
 type Preference = {
-    label: String,
+    label: string,
     value: Tempo | Tees | Attitude
 }
 
@@ -43,11 +43,12 @@ enum AttitudeValues {
     Medium = 'attitude_medium',
     Competitive = 'attitude_competitive'
 }
+type AttitudeLabels =  'Riktigt avslappnad' | 'Sociala spelaren' | 'Tävlingsinriktad'
 interface Attitude {
     label: AttitudeLabels,
     value: AttitudeValues
 }
-type AttitudeLabels =  'Riktigt avslappnad' | 'Sociala spelaren' | 'Tävlingsinriktad'
+
 const ATTITUDE_OPTIONS : Attitude[] = [
     {
         label: 'Riktigt avslappnad',
@@ -62,13 +63,12 @@ const ATTITUDE_OPTIONS : Attitude[] = [
 ]
 
 const Preferences : FC = () => {
-    const [value,
-        setValue] = useState < Preference | null > (null);
-
-    const onChange = (e : any) => {
-        console.log('radio checked', e.target.value);
-        setValue(e.target.value);
-    };
+    const [tempo,
+        setTempo] = useState < Preference | null > (null);
+    const [tee,
+        setTee] = useState < Preference | null > (null);
+    const [attitude,
+        setAttitude] = useState <Attitude | null > (null);
 
     return (
         <div>
@@ -76,19 +76,19 @@ const Preferences : FC = () => {
             <h3>Vänligen kryssa i vilka egenskaper du vill att din spelpartner skall ha</h3>
             <div>
                 <h5>Tempo</h5>
-                <Radio.Group onChange={onChange} value={value}>
+                <Radio.Group onChange={(e:any) => setTempo(e.target.value)} value={tempo}>
                     {TEMPO_OPTIONS.map(option => <Radio value={option.value}>{option.label}</Radio>)}
                 </Radio.Group>
             </div>
             <div>
                 <h5>Tee</h5>
-                <Radio.Group onChange={onChange} value={value}>
+                <Radio.Group onChange={(e:any) => setTee(e.target.value)} value={tee}>
                     {TEE_OPTIONS.map(option => <Radio value={option.value}>{option.label}</Radio>)}
                 </Radio.Group>
             </div>
             <div>
                 <h5>Attityd</h5>
-                <Radio.Group onChange={onChange} value={value}>
+                <Radio.Group onChange={(e:any) => setAttitude(e.target.value)} value={attitude}>
                     {ATTITUDE_OPTIONS.map(option => <Radio value={option.value}>{option.label}</Radio>)}
                 </Radio.Group>
             </div>
