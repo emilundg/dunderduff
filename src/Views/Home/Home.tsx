@@ -1,8 +1,11 @@
 import React, {FC} from 'react'
+import { useNavigate } from 'react-router-dom';
 import {Button, Typography} from 'antd'
 
 const {Title, Paragraph} = Typography;
 const Home : FC = () => {
+    const navigate = useNavigate();
+
     return (
         <div>
             <div
@@ -33,9 +36,9 @@ const Home : FC = () => {
                         width: '24rem',
                         height: '12rem'
                     }}>
-                        <Title style={{color: 'rgba(255,255,255,0.89)'}}>Välkommen till Dunderduffarna!</Title>
+                        <Title style={{color: 'rgba(255,255,255,0.89)'}}>Välkommen till Dunderduffarna</Title>
                         <Paragraph style={{color: 'rgba(255,255,255,0.89)'}}>Ditt sätt att hitta passande folk att spela med!</Paragraph>
-                        <Button type="primary">HITTA SPELPARTNER</Button>
+                        <Button type="primary" onClick={() => navigate('find')}>HITTA SPELPARTNER</Button>
                     </div>
                 </div>
             </div>
