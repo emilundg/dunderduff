@@ -57,7 +57,6 @@ const Find : FC = () => {
                     </Button>
                 )}
             </div>
-            <Preferences/>
         </div>
     )
 }
