@@ -1,9 +1,12 @@
 import {AutoComplete} from 'antd'
 import React, {FC, useState} from 'react'
 
+
+type ValidClubhouses = 'Alingsås GK' | 'Partille GK' | 'Hills GK'
 type ClubHouseOption = {
-    value: string
+    value: ValidClubhouses
 };
+
 const clubHouseOptions : ClubHouseOption[] = [
     {
         value: 'Alingsås GK'
