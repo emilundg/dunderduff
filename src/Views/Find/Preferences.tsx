@@ -1,5 +1,6 @@
-import React, {FC, useState} from 'react'
-import {Radio} from 'antd'
+import React, {FC, useContext, useState} from 'react';
+import {Radio} from 'antd';
+import FindContext from 'src/Context/FindContext';
 
 export type Preference = {
     label: string,
@@ -63,8 +64,7 @@ const ATTITUDE_OPTIONS : Attitude[] = [
 ]
 
 const Preferences : FC = () => {
-    const [tempo,
-        setTempo] = useState < Preference | null > (null);
+    const find = useContext(FindContext)
     const [tee,
         setTee] = useState < Preference | null > (null);
     const [attitude,
@@ -76,7 +76,7 @@ const Preferences : FC = () => {
             <h3>Vänligen kryssa i vilka egenskaper du vill att din spelpartner skall ha</h3>
             <div>
                 <h5>Tempo</h5>
-                <Radio.Group onChange={(e:any) => setTempo(e.target.value)} value={tempo}>
+                <Radio.Group onChange={(e:any) => find.setTempo(e.target.value)} value={find.tempo}>
                     {TEMPO_OPTIONS.map(option => <Radio value={option.value}>{option.label}</Radio>)}
                 </Radio.Group>
             </div>
