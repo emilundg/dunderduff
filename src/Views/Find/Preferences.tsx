@@ -9,15 +9,15 @@ export type Preference = {
 
 enum Tempo {
     Slow = 'slow',
-    Fast = 'fast',
+    Fast = 'fast'
 }
 const TEMPO_OPTIONS : Preference[] = [
     {
         label: 'Långsam',
-        value: Tempo.Slow 
+        value: Tempo.Slow
     }, {
         label: 'Spelar snabbt',
-        value: Tempo.Fast 
+        value: Tempo.Fast
     }
 ]
 
@@ -44,51 +44,50 @@ enum AttitudeValues {
     Medium = 'attitude_medium',
     Competitive = 'attitude_competitive'
 }
-type AttitudeLabels =  'Riktigt avslappnad' | 'Sociala spelaren' | 'Tävlingsinriktad'
-interface Attitude {
-    label: AttitudeLabels,
-    value: AttitudeValues
+type AttitudeLabels = 'Riktigt avslappnad' | 'Sociala spelaren' | 'Tävlingsinriktad'
+export interface Attitude {
+    label : AttitudeLabels,
+    value : AttitudeValues
 }
 
 const ATTITUDE_OPTIONS : Attitude[] = [
     {
         label: 'Riktigt avslappnad',
-        value: AttitudeValues.Loose 
+        value: AttitudeValues.Loose
     }, {
         label: 'Sociala spelaren',
-        value: AttitudeValues.Medium 
+        value: AttitudeValues.Medium
     }, {
         label: 'Tävlingsinriktad',
-        value: AttitudeValues.Competitive 
+        value: AttitudeValues.Competitive
     }
 ]
 
 const Preferences : FC = () => {
     const find = useContext(FindContext)
-    const [tee,
-        setTee] = useState < Preference | null > (null);
-    const [attitude,
-        setAttitude] = useState <Attitude | null > (null);
-
     return (
         <div>
             <h1>Spelegenskaper</h1>
             <h3>Vänligen kryssa i vilka egenskaper du vill att din spelpartner skall ha</h3>
             <div>
                 <h5>Tempo</h5>
-                <Radio.Group onChange={(e:any) => find.setTempo(e.target.value)} value={find.tempo}>
+                <Radio.Group
+                    onChange={(e : any) => find.setTempo(e.target.value)}
+                    value={find.tempo}>
                     {TEMPO_OPTIONS.map(option => <Radio value={option.value}>{option.label}</Radio>)}
                 </Radio.Group>
             </div>
             <div>
                 <h5>Tee</h5>
-                <Radio.Group onChange={(e:any) => setTee(e.target.value)} value={tee}>
+                <Radio.Group onChange={(e : any) => find.setTee(e.target.value)} value={find.tee}>
                     {TEE_OPTIONS.map(option => <Radio value={option.value}>{option.label}</Radio>)}
                 </Radio.Group>
             </div>
             <div>
                 <h5>Attityd</h5>
-                <Radio.Group onChange={(e:any) => setAttitude(e.target.value)} value={attitude}>
+                <Radio.Group
+                    onChange={(e : any) => find.setAttitude(e.target.value)}
+                    value={find.attitude}>
                     {ATTITUDE_OPTIONS.map(option => <Radio value={option.value}>{option.label}</Radio>)}
                 </Radio.Group>
             </div>
