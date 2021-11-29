@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react'
 import {Radio} from 'antd'
 
-type Preference = {
+export type Preference = {
     label: string,
     value: Tempo | Tees | Attitude
 }
