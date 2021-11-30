@@ -24,6 +24,7 @@ orbs:
 workflows:
   test-workflow:
     jobs:
+      pkg-manager: yarn
       - build
       - test:
           requires:
