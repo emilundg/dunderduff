@@ -18,6 +18,9 @@ jobs:
       - checkout
       - run: yarn test
 
+orbs:
+  node: circleci/node@4.7
+
 workflows:
   test-workflow:
     jobs:
