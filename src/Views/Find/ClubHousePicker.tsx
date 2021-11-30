@@ -39,7 +39,7 @@ const ClubHousePicker : FC = () => {
     };
 
     return (
-        <div>
+        <div data-testid="clubhouse-picker">
             <>
                 <AutoComplete
                 options={options}
