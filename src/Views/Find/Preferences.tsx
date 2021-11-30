@@ -1,4 +1,4 @@
-import React, {FC, useContext, useState} from 'react';
+import React, {FC, useContext} from 'react';
 import {Radio} from 'antd';
 import FindContext from 'src/Context/FindContext';
 
