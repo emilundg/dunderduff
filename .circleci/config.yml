@@ -17,6 +17,7 @@ jobs:
       - run: node --version
       - run: yarn --install
       - run: yarn --test
+    parallelism: 4
 
 workflows:
   test:
